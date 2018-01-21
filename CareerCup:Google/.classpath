@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="anonymous"/>
+	<classpathentry kind="src" path="Arrays"/>
+	<classpathentry kind="src" path="Bitwise"/>
+	<classpathentry kind="src" path="CtCILibrary"/>
+	<classpathentry kind="src" path="dictionaries"/>
+	<classpathentry kind="src" path="graphKind"/>
+	<classpathentry kind="src" path="javaIterators"/>
+	<classpathentry kind="src" path="Math"/>
+	<classpathentry kind="src" path="Matrices"/>
+	<classpathentry kind="src" path="random_probabilities"/>
+	<classpathentry kind="src" path="streambasedquestions"/>
+	<classpathentry kind="src" path="Strings"/>
+	<classpathentry kind="src" path="trees"/>
+	<classpathentry kind="src" path="combinationsandpermutations"/>
+	<classpathentry kind="src" path="geometric+algorithms"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
