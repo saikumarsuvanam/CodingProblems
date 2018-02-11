@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 //718. Maximum Length of Repeated Subarray //https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/
 
 /*
@@ -23,11 +23,12 @@ import java.util.List;
 import java.util.Map;
 
 public class MaximumLengthOfRepeatedSubArray {
-	
-	//Approach 1:Dp Solution not better with space and time
-	// in order to avoid one dimension for space, used prev and temp to store dp[i][j]
-	//for calculating used this :dp[i+1][j+1]=1+dp[i][j]
-	
+
+	// Approach 1:Dp Solution not better with space and time
+	// in order to avoid one dimension for space, used prev and temp to store
+	// dp[i][j]
+	// for calculating used this :dp[i+1][j+1]=1+dp[i][j]
+
 	public int findLength(int[] A, int[] B) {
 		int max = 0;
 		int dp[] = new int[B.length + 1];
@@ -45,38 +46,35 @@ public class MaximumLengthOfRepeatedSubArray {
 				max = Math.max(max, dp[j + 1]);
 			}
 		}
-		
+
 		return max;
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Approach2: Goodone with better time and space
+
+	// Approach2: Goodone with better time and space
 
 	/*
-	 * 1) choose a length of substring by binary search( low, high, mid) 
-	 * 2) Compute rolling hash values for both strings for a given length mid 
-	 * 3) match the two rolling hashes and see if they are the same and reposition
-	 *    the binary search accordingly.
-	 *    
-	 *    Time Complexity: O((M+N)∗log(min(M,N))), where M, NM,N are the lengths of A, B. The log factor is contributed by the binary search, while creating the rolling hashes is O(M + N)O(M+N). The checks for duplicate hashes are O(1)O(1). If we perform a naive check to make sure our answer is correct, it adds a factor of O(\min(M, N))O(min(M,N)) to our cost of check, which keeps the complexity the same.
-
-         Space Complexity: O(M)O(M), the space used to store hashes and the subarrays in our final naive check.
-	 *    
-	 *    
-	 *    
+	 * 1) choose a length of substring by binary search( low, high, mid) 2)
+	 * Compute rolling hash values for both strings for a given length mid 3)
+	 * match the two rolling hashes and see if they are the same and reposition
+	 * the binary search accordingly.
+	 * 
+	 * Time Complexity: O((M+N)∗log(min(M,N))), where M, NM,N are the lengths of
+	 * A, B. The log factor is contributed by the binary search, while creating
+	 * the rolling hashes is O(M + N)O(M+N). The checks for duplicate hashes are
+	 * O(1)O(1). If we perform a naive check to make sure our answer is correct,
+	 * it adds a factor of O(\min(M, N))O(min(M,N)) to our cost of check, which
+	 * keeps the complexity the same.
+	 * 
+	 * Space Complexity: O(M)O(M), the space used to store hashes and the
+	 * subarrays in our final naive check.
+	 * 
+	 * 
+	 * 
 	 */
 	class Solution {
-		int P = 113;
-		int MOD = 1_000_000_007;
+		int P = 101;
+		int MOD = 1000000007;
 		int Pinv = BigInteger.valueOf(P).modInverse(BigInteger.valueOf(MOD)).intValue();
 
 		private int[] rolling(int[] source, int length) {
@@ -127,4 +125,15 @@ public class MaximumLengthOfRepeatedSubArray {
 			return lo - 1;
 		}
 	}
+
+	public static void main(String[] args) {
+		int[] a = new int[] { 1, 2, 3, 2, 1 };
+		int[] b = new int[] { 3, 2, 1, 4, 7 };
+
+		MaximumLengthOfRepeatedSubArray m = new MaximumLengthOfRepeatedSubArray();
+		Solution s = m.new Solution();
+		System.out.println(s.findLength(a, b));
+
+	}
+
 }

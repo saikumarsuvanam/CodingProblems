@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 //https://leetcode.com/problems/ones-and-zeroes/discuss/95807
 //474. Ones and Zeroes
@@ -50,7 +50,7 @@ public class OnesandZeroes {
 			for (int i = 0; i < l + 1; i++) {
 				int[] nums = new int[] { 0, 0 };
 				if (i > 0) {
-					//calculate number of ones and zeros in a given String
+					// calculate number of ones and zeros in a given String
 					nums = calculate(strs[i - 1]);
 				}
 				for (int j = 0; j < m + 1; j++) {
@@ -100,80 +100,77 @@ public class OnesandZeroes {
 			return dp[m][n];
 		}
 
-
 	}
-	
+
 	// not correct solution 58 test cases passed out of 63
-	class TopDown{
+	class TopDown {
 		public int findMaxForm(String[] strs, int m, int n) {
-			
-int[][][] dp=new int[strs.length] [m+1][n+1];
 
-int[] [] zeros=new int[strs.length][2];
-for(int i=0;i<strs.length;i++){
-	zeros[i] = calculate(strs[i]);
-}
+			int[][][] dp = new int[strs.length][m + 1][n + 1];
 
-			return helper(strs,m,n,0,dp,zeros);
+			int[][] zeros = new int[strs.length][2];
+			for (int i = 0; i < strs.length; i++) {
+				zeros[i] = calculate(strs[i]);
+			}
+
+			return helper(strs, m, n, 0, dp, zeros);
 		}
 
-		
-int helper(String [] strs,int m, int n,int index,int [][][]dp,int[][] zeros){
-			if(index>=strs.length)return 0;
-			if(dp[index][m][n]!=0) {
-                
-             if(dp[index][m][n]==-1){
-                 return 0;
-             } 
-                return dp[index][m][n];
-                
-            } 
-			int max=0;
-			for(int i=index;i<strs.length;i++){
+		int helper(String[] strs, int m, int n, int index, int[][][] dp, int[][] zeros) {
+			if (index >= strs.length)
+				return 0;
+			if (dp[index][m][n] != 0) {
+
+				if (dp[index][m][n] == -1) {
+					return 0;
+				}
+				return dp[index][m][n];
+
+			}
+			int max = 0;
+			for (int i = index; i < strs.length; i++) {
 				int[] nums = zeros[i];
-				if(m-nums[0]>=0 && n-nums[1]>=0){
-				   int res=1+helper(strs,m-nums[0],n-nums[1],i+1,dp,zeros);
-				   max=Math.max(max, res);
+				if (m - nums[0] >= 0 && n - nums[1] >= 0) {
+					int res = 1 + helper(strs, m - nums[0], n - nums[1], i + 1, dp, zeros);
+					max = Math.max(max, res);
 				}
 			}
-            if(max==0){
-             dp[index][m][n]=-1;   
-            }
-			else dp[index][m][n]=max;
+			if (max == 0) {
+				dp[index][m][n] = -1;
+			} else
+				dp[index][m][n] = max;
 			return max;
 		}
-	
-		
+
 	}
-	
-	
-	//calculates number of zeros and 1s in a string
-			private int[] calculate(String str) {
-				int[] res = new int[2];
-				Arrays.fill(res, 0);
 
-				for (char ch : str.toCharArray()) {
-					if (ch == '0') {
-						res[0]++;
-					} else if (ch == '1') {
-						res[1]++;
-					}
-				}
+	// calculates number of zeros and 1s in a string
+	private int[] calculate(String str) {
+		int[] res = new int[2];
+		Arrays.fill(res, 0);
 
-				return res;
+		for (char ch : str.toCharArray()) {
+			if (ch == '0') {
+				res[0]++;
+			} else if (ch == '1') {
+				res[1]++;
 			}
+		}
+
+		return res;
+	}
 
 	public static void main(String[] args) {
 		String[] s = new String[] { "10", "0001", "111001", "1", "0" };
 
 		int m = 5, n = 3;
-		
-		OnesandZeroes o = new OnesandZeroes();
-		BottomUp bt=o.new BottomUp();
-	    System.out.println(bt.findMaxForm1(s, m, n));
 
-	    TopDown tp=o.new TopDown();
-	    System.out.println(tp.findMaxForm(s, m, n));
+		OnesandZeroes o = new OnesandZeroes();
+		BottomUp bt = o.new BottomUp();
+		System.out.println(bt.findMaxForm1(s, m, n));
+
+		TopDown tp = o.new TopDown();
+		System.out.println(tp.findMaxForm(s, m, n));
 
 	}
 

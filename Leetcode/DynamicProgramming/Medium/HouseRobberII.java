@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 /*
  *213. House Robber II  https://leetcode.com/problems/house-robber-ii/discuss/59934

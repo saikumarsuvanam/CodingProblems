@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 //64. Minimum Path Sum https://leetcode.com/problems/minimum-path-sum/description/
 /*Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
@@ -19,7 +19,8 @@ public class MinPathSum {
 	// Better Solution with o(n) space complexity and time -o(mn)
 	public int minPathSum1(int[][] grid) {
 
-		//use only one dimension which is column length find the min of current,old value+grid[i][j]
+		// use only one dimension which is column length find the min of
+		// current,old value+grid[i][j]
 		int dp[] = new int[grid[0].length + 1];
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {

@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package Easy;
 //746 https://leetcode.com/problems/min-cost-climbing-stairs/description/
 public class MinCostClimbingStairs {
 

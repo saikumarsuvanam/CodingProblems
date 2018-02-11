@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 //357. Count Numbers with Unique Digits
 //Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
@@ -37,11 +37,10 @@ public class CountNumberswithUniqueDigits {
 	 * lookup table for it. This problem is O(1) in essence.
 	 * 
 	 */
-	
-	
 
 	public int countNumbersWithUniqueDigits(int n) {
-		if(n==0) return 1;
+		if (n == 0)
+			return 1;
 		if (n == 1)
 			return 10;
 		if (n == 2)
@@ -57,8 +56,6 @@ public class CountNumberswithUniqueDigits {
 		return res;
 
 	}
-	
-
 
 	public static void main(String[] args) {
 		CountNumberswithUniqueDigits c = new CountNumberswithUniqueDigits();

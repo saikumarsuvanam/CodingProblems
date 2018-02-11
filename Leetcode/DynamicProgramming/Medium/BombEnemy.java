@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 //361 Bomb Enemy
 //https://discuss.leetcode.com/topic/48565/short-o-mn-time-o-n-space-solution/42?page=3

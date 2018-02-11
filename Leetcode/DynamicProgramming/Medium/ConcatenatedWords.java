@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 public class ConcatenatedWords {
 
@@ -6,6 +6,5 @@ public class ConcatenatedWords {
 		// TODO Auto-generated method stub
 
 	}
-	
 
 }

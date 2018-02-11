@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 /*//338. Counting Bits
  * Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
@@ -8,8 +8,8 @@ For num = 5 you should return [0,1,1,2,1,2].
  */
 public class CountBits {
 
-	// hint clean and neat :An easy recurrence for this problem is 
-	//f[i] = f[i /2] + i % 2.
+	// hint clean and neat :An easy recurrence for this problem is
+	// f[i] = f[i /2] + i % 2.
 	// Approach 1
 	public int[] countBits(int num) {
 		int[] f = new int[num + 1];

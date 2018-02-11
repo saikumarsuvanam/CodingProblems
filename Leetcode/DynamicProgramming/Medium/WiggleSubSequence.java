@@ -1,4 +1,5 @@
-package DynamicProgramming.Medium;
+package Medium;
+
 /*https://leetcode.com/problems/wiggle-subsequence/description/
  * 
  * https://leetcode.com/problems/wiggle-subsequence/solution/

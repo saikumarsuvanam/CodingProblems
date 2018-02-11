@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 //63. Unique Paths II https://leetcode.com/problems/unique-paths-ii/description/
 /*Follow up for "Unique Paths":
@@ -30,10 +30,11 @@ public class UniquepathsII {
 		int dp[][] = new int[m + 1][n + 1];
 		for (int i = m - 1; i >= 0; i--) {
 			for (int j = n - 1; j >= 0; j--) {
-				//if it has obstacel i.e 1, then store dp as 0.
+				// if it has obstacel i.e 1, then store dp as 0.
 				if (obstacleGrid[i][j] == 1) {
 					dp[i][j] = 0;
-				// if it is the end of the cell store dp as 1 as we reached the end.
+					// if it is the end of the cell store dp as 1 as we reached
+					// the end.
 				} else if (i == m - 1 && j == n - 1) {
 					dp[i][j] = 1;
 				} else

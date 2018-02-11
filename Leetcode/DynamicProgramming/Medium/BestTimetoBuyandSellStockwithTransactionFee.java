@@ -1,8 +1,6 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 import java.util.Arrays;
-
-
 
 //714. Best Time to Buy and Sell Stock with Transaction Fee https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/
 
@@ -24,8 +22,8 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 public class BestTimetoBuyandSellStockwithTransactionFee {
 
 	class BottomUp {
-		// reducing one table dimension in bottomup 
-		//o(n) time and o(1) space
+		// reducing one table dimension in bottomup
+		// o(n) time and o(1) space
 		public int simpleSolution(int[] prices, int fee) {
 
 			int cash = 0, hold = -prices[0];
@@ -36,7 +34,6 @@ public class BestTimetoBuyandSellStockwithTransactionFee {
 			return cash;
 		}
 
-		
 		// time o(n) time and o(n) space
 		// Hint Nice post for stock problems
 		// https://discuss.leetcode.com/topic/107998/most-consistent-ways-of-dealing-with-the-series-of-stock-problems
@@ -52,47 +49,47 @@ public class BestTimetoBuyandSellStockwithTransactionFee {
 			return (int) dp[prices.length][0];
 		}
 
-}
-
-static class TopDown {
-	public int maxProfit(int[] prices, int fee) {
-		dp = new int[prices.length][prices.length];
-		maxprofit = 0;
-		recurHelper(0, prices.length - 1, fee, prices);
-		return maxprofit;
-
 	}
 
-	static int[][] dp;
-	static int maxprofit = 0;
-
-	public int recurHelper(int start, int end, int fee, int[] prices) {
-		if (start > end)
-			return 0;
-		if (dp[start][end] != 0)
-			return dp[start][end];
-		if (start == end)
-			return 0;
-		int localprofit = 0;
-		for (int i = start; i <= end; i++) {
-			int profit = 0;
-			for (int j = i + 1; j <= end; j++) {
-
-				if (prices[j] > prices[i] + fee) {
-					profit = prices[j] - prices[i] - fee + recurHelper(j + 1, end, fee, prices);
-				}
-				maxprofit = Math.max(profit, maxprofit);
-				localprofit = Math.max(localprofit, profit);
-			}
+	static class TopDown {
+		public int maxProfit(int[] prices, int fee) {
+			dp = new int[prices.length][prices.length];
+			maxprofit = 0;
+			recurHelper(0, prices.length - 1, fee, prices);
+			return maxprofit;
 
 		}
-		dp[start][end] = localprofit;
 
-		return localprofit;
+		static int[][] dp;
+		static int maxprofit = 0;
+
+		public int recurHelper(int start, int end, int fee, int[] prices) {
+			if (start > end)
+				return 0;
+			if (dp[start][end] != 0)
+				return dp[start][end];
+			if (start == end)
+				return 0;
+			int localprofit = 0;
+			for (int i = start; i <= end; i++) {
+				int profit = 0;
+				for (int j = i + 1; j <= end; j++) {
+
+					if (prices[j] > prices[i] + fee) {
+						profit = prices[j] - prices[i] - fee + recurHelper(j + 1, end, fee, prices);
+					}
+					maxprofit = Math.max(profit, maxprofit);
+					localprofit = Math.max(localprofit, profit);
+				}
+
+			}
+			dp[start][end] = localprofit;
+
+			return localprofit;
+
+		}
 
 	}
-
-}
 
 	public static void main(String[] args) {
 		BestTimetoBuyandSellStockwithTransactionFee b = new BestTimetoBuyandSellStockwithTransactionFee();
@@ -154,10 +151,10 @@ static class TopDown {
 				4239, 264, 202, 501, 967, 869, 3942, 330, 368, 4294, 4535, 1917, 1973, 2197, 3659, 3099, 4220, 2402,
 				4941, 3440, 1694, 1934, 1564, 3063, 3331, 3662 };
 		int fee = 1231;
-	TopDown t=new TopDown();
-	System.out.println("TopDown Solution: "+t.maxProfit(prices, fee));
-	BottomUp bt=b.new BottomUp();
-	System.out.println("BottomUp Solution: "+bt.maxProfit(prices, fee));
+		TopDown t = new TopDown();
+		System.out.println("TopDown Solution: " + t.maxProfit(prices, fee));
+		BottomUp bt = b.new BottomUp();
+		System.out.println("BottomUp Solution: " + bt.maxProfit(prices, fee));
 		// b.maxProfit(prices, fee);
 	}
 

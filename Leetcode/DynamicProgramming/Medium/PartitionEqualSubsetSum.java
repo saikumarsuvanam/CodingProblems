@@ -1,4 +1,4 @@
-package DynamicProgramming.Medium;
+package Medium;
 
 //416. Partition Equal Subset Sum https://leetcode.com/problems/partition-equal-subset-sum/discuss/
 import java.util.Arrays;
@@ -54,7 +54,8 @@ public class PartitionEqualSubsetSum {
 			return dp[n - 1][sum];
 		}
 
-		// with one dimension go from backwards for loop sum i.e the trick to reduce it to one dimension
+		// with one dimension go from backwards for loop sum i.e the trick to
+		// reduce it to one dimension
 		public boolean canPartition1(int[] nums) {
 			int sum = 0;
 
