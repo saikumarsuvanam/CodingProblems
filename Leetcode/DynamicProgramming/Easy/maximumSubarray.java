@@ -8,9 +8,6 @@ the contiguous subarray [4,-1,2,1] has the largest sum = 6.
  */
 
 public class maximumSubarray {
-	
-	
-	
 
 	public int maxSubArray(int[] nums) {
 		Integer maxSum = null;
