@@ -1,10 +1,10 @@
-package CtCILibrary;
+package DS;
 
 public class BitVector {
 	private static int DATA_SIZE = 32;
 	private int length;
 	private int[] vector;
-	
+
 	public BitVector(int length) {
 		this.length = length;
 		if (length % DATA_SIZE == 0) {
@@ -13,11 +13,11 @@ public class BitVector {
 			vector = new int[length / DATA_SIZE + 1];
 		}
 	}
-	
+
 	public int length() {
 		return length;
 	}
-	
+
 	public boolean get(int i) {
 		int b = vector[i / DATA_SIZE];
 		int bit_index = i % DATA_SIZE;
@@ -28,7 +28,7 @@ public class BitVector {
 			return false;
 		}
 	}
-	
+
 	public void print() {
 		for (int k : vector) {
 			for (int i = 0; i < DATA_SIZE; i++) {
@@ -41,7 +41,7 @@ public class BitVector {
 			System.out.println();
 		}
 	}
-	
+
 	public void set(int i, boolean flag) {
 		if (i >= 0 && i < length) {
 			int mask = ~(1 << i);

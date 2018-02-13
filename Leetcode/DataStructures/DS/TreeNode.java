@@ -1,12 +1,12 @@
-package CtCILibrary;
+package DS;
 
 /* One node of a binary tree. The data element stored is a single 
  * character.
  */
 public class TreeNode {
-	public int data;      
-	public TreeNode left;    
-	public TreeNode right; 
+	public int data;
+	public TreeNode left;
+	public TreeNode right;
 	public TreeNode parent;
 	private int size = 0;
 
@@ -14,21 +14,21 @@ public class TreeNode {
 		data = d;
 		size = 1;
 	}
-	
+
 	private void setLeftChild(TreeNode left) {
 		this.left = left;
 		if (left != null) {
 			left.parent = this;
 		}
 	}
-	
+
 	private void setRightChild(TreeNode right) {
 		this.right = right;
 		if (right != null) {
 			right.parent = this;
 		}
 	}
-	
+
 	public void insertInOrder(int d) {
 		if (d <= data) {
 			if (left == null) {
@@ -45,33 +45,33 @@ public class TreeNode {
 		}
 		size++;
 	}
-	
+
 	public int size() {
 		return size;
 	}
-	
+
 	public boolean isBST() {
 		if (left != null) {
 			if (data < left.data || !left.isBST()) {
 				return false;
 			}
 		}
-		
+
 		if (right != null) {
 			if (data >= right.data || !right.isBST()) {
 				return false;
 			}
-		}		
-		
+		}
+
 		return true;
 	}
-	
+
 	public int height() {
 		int leftHeight = left != null ? left.height() : 0;
 		int rightHeight = right != null ? right.height() : 0;
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
-	
+
 	public TreeNode find(int d) {
 		if (d == data) {
 			return this;
@@ -82,8 +82,8 @@ public class TreeNode {
 		}
 		return null;
 	}
-	
-	private static TreeNode createMinimalBST(int arr[], int start, int end){
+
+	private static TreeNode createMinimalBST(int arr[], int start, int end) {
 		if (end < start) {
 			return null;
 		}
@@ -93,12 +93,12 @@ public class TreeNode {
 		n.setRightChild(createMinimalBST(arr, mid + 1, end));
 		return n;
 	}
-	
+
 	public static TreeNode createMinimalBST(int array[]) {
 		return createMinimalBST(array, 0, array.length - 1);
 	}
-	
+
 	public void print() {
 		BTreePrinter.printNode(this);
 	}
-} 
+}
