@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="DynamicProgramming"/>
 	<classpathentry kind="src" path="Trees"/>
 	<classpathentry kind="src" path="DataStructures"/>
+	<classpathentry kind="src" path="Stacks"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
